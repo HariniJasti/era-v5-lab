@@ -1,0 +1,103 @@
+doc_id,read,verdict,diseases,evidence,hex,note
+doc_id,read,verdict,diseases,evidence,hex,note
+c5d61b53df104867,full,drop,C1;C3,WORKBOOKSDESCRIPTION; [Read More >>>],,teaser page; contented is truncated
+adbab34e5ae0df37,full,fix,C4;C3,promised to keep aThe play,,there are differnt topics in that I found 2 topics are joined and 1 got truncated.
+d09dc244c45fc2bf,full,fix,C1,Our Guide to Vaping; Store Information; Electronic Cigarette Co makes no guarantees,,footers and disclamiers at the end of the article.
+e0d9cf468f079906,full,drop,C3,states BOLD responses.,,missing info cause its too short and not complete.
+85f167761b5aee0d,full,clean,,,,
+17f4af14c04c9fde,full,fix,C1;F1,Primary tabs at offset 39; [email protected] at offset 803; phone number at offset 824,,personal info found and boilerplate
+9f8dfc9742bda8da,full,clean,,,,
+a79b9132feb9c66f,full,drop,C4;C3,"workers because of their dedication, . told reporters; Kuching Division and.; metals processing, and .; The industry ..; electricity in the State of .; may hold a .",,both sentences got joined and lot of info is truncated
+b53192f0d3a3dbfc,full,drop,C5;C4;C3;C2;A3,A look at the moral development of filipino youth; Exam 4 practice question pool; due to the lack of.; cotˆ ´e at offset 3446,U+02C6 U+00B4,essay-mill SEO page; scraped snippets glued with punctuation removed
+b787548f4655559b,full,fix,C1,Search for:; Author | Jason Moeller,,Q&A article complete; search box and author widget at the end
+29160f1b6b0823cf,full,fix,C1;D3,解说语言; 亮点The Sun Voyager; See a full list of Reykjavík Tours,,found chinese at the starting of the document
+b1eb87d32a353c10,full,clean,,,,its a poem and it has authors other poetry collection at teh end.
+283b60b13383e951,full,clean,,,,
+ca32200e3729539d,full,drop,C1;F3,Click to expand...; You want blood running like water in the streets?,,political threats.
+0c69e2d3936a37a9,full,drop,C3,"(e.g., lumpy snowflake",,truncated mid-sentence at the end of the doc
+87c9a4cea626e330,full,fix,C3,using the following link:,,FOI request and reply; link at the end missing
+e18d8d5057e2aea8,full,drop,C3;C1;F1,so that the situation can be…; ukessays.com; Need help?; student name at offset 3513,,essay-mill page; student and teacher names in a snippet
+428e9a9786a8ec29,full,clean,,,,
+8da768022880757d,full,clean,,,,short paragraph
+056cc9bc44c927e2,full,clean,,,,
+45cc4aca83036255,full,drop,C2;C3;C4;C5,An analysis of realism in both great expectations and frankenstein; pip and dickens undergo a humbling self-analysis; realism which is .; ProfessorFrankenstein,,essay-mill SEO page
+cfac9458cbfdbc3f,full,clean,,,,
+792d84fd14d8433e,full,clean,,,,political realted documnet
+bcf05b0db582261c,full,clean,,,,post
+931738ea83d03068,full,fix,C4,The fastest What is the name of; name of the slowest Which is,,answer and question got joined
+9dee088c1d408630,full,clean,,,,
+effb46c11c1b6d64,full,fix,C1,$22.00; Quantity,,website
+024cf48bc1be034f,full,clean,,,,
+58c21b15df9a020d,full,clean,,,,short
+710c4b66eec659f9,full,clean,,,,
+b0090aaa22e20e44,full,clean,,,,
+e4f7e440698ae68f,full,clean,,,,
+78a561ee28ebbb6f,full,clean,,,,
+b8e726ed25bf4dfa,full,drop,B4;C1;C3;C4;C5,Heroes of olympus book 2 summary; guile dissertation and deceitfulness; stole back the hippie sinews; Continue reading Below; hermes the.; future.2,,SEO spam stitched from theoi.com + Cracked + essay-mill ads + wiki; random words injected into sentences
+494be9a546e5e0f2,full,drop,C5;C1;C3,make h bridge using mosfet driver ir2110 and h bridge for inverter h; continued on next page; smart tv service; q2 used generate,,
+a0c9ea494f4974ea,full,clean,,,,
+f4a09231f100889f,full,clean,,,,
+351055b1795d8f3b,full,fix,C1;C2,This is Sonya54's TrustRating; This is Giavani123's TrustRating; This is Brady78's TrustRating,,rating-widget tooltip repeated 3x with only username changed
+6815ebe92f7bc8bc,full,drop,C3,administrative assistance,,blog post on NCES report cut off mid-article; debt and enrollment parts missing
+0662e244b902eb56,full,clean,,,,
+bf58bb70fdc4a7fe,full,drop,C2;C3;C4;C5,students essays sample topics narrative persuasive; cover many.; It.; Writing Prompts has 31 ratings,,SEO snippet page about one book (Amazon/Goodreads/Kobo/NYT); NEW: number 501 stripped from title inside text
+977dc6d0135933b0,full,clean,,,,
+492efe6c7aa42a80,full,clean,,,,
+b5f210bac82e7902,full,fix,C1;C2;F1,Home / Local News /; (Herald Review photos/Meghan Gunther-Haas); (From left) Big Rapids Middle School students; minor's name at offset 1091; minors' names at offsets 2467-2497,,local news; breadcrumb and photo captions; names of middle-school students (minors) in captions
+f458786dc712df4e,full,clean,,,,question and answer glued (missing ? and line break)
+a3727c426e649c64,full,drop,C2;C4;C5;F1,phone number at offset 278 (repeated 9x); Why are you wearing a tie today?; The agreement gave Britain control over Egypt.,,spam: random corpus sentences as filler with one phone number inserted 9 times
+ea2309bcf778e789,full,drop,A4;C3,"promote your webinar via; ? Create a compelling invitation: (literal ? at offsets 157, 191, 235, 270, 284); ? Get sponsors?",U+003F,fragment; starts mid-sentence; bullets replaced by literal ? (not U+FFFD); list items have no content
+fc652552ea53be2b,full,drop,C2;C3;C4;C5,one problem being done eac; reinforce their latitu; Students can compA comprehensive; WeeklyThird Grade,,teacher-marketplace listing page; ~20 product teasers cut mid-word and glued
+0e3e6fdfe3d7d698,full,fix,B5;C2;C3,"NativeStringValidatorimplements; constTEST_STRING; new IsString(); (),($this->getIsString(); TEST_STRINGNativeStringValidator",,PHP tutorial; code formatting destroyed (spaces lost and tokens split per line); code blocks partly missing or duplicated; hard-wrapped prose
+fab230d1a3b03a77,full,fix,C1;C3;F1,Conservation Partners connecting working lands; _____; The US Priority Index map for Biodiversity:; available at  Photos; phone number at offset 5203; email at offset 5221,,reposted press release; site tagline and divider; map captions with images missing; removed URL; personal gmail and phone of researcher
+cf9ffce5fa114b16,full,drop,C3,interstitium. It,,news teaser cut off mid-sentence
+45265960ead737bf,full,fix,C1,RSS header - this is hidden,,leaked hidden template header
+fc69e8dfaf5371ec,full,clean,,,,
+3e4ee522b5c267be,full,drop,C2;C3;C4;C5,Description zoo essay; a trip to the zoo is.; Essayzoo: cheap pre written essays for sale; limitednotei will apreciate,,essay-mill SEO snippet page
+d00bc9657d915e00,full,drop,C1;C3;C4;C5,'ve tutored off and on; theHello! My name is Ella; Utilize Uloop.com to find Maryland Anthropology tutors today!,,tutor-listing page; profile teasers cut and glued; keyword-stuffed SEO paragraph
+e1841a9e4d49586c,full,fix,C2;C4;D4,"Note: In most cases, not only the student; increase the negative in your address; Student Scientific Society",,physics note on lenses with unrelated machine-translated filler paragraph appended
+48541ab5ac386c19,full,drop,C3;C4;C5;F1,disposable; mandated taking out […]; reader name and city at offset 118; avoiding products that come in disposable packaging,,tag archive page; two post teasers cut off; reader's name and city
+c4ec194f16d4d46a,full,clean,,,,
+c71502baf08f9886,full,fix,B5;C3,"Suppose we have the following code:; while name == """":",,Vim tutorial; one code block missing; Python indentation lost; tables flattened one cell per line; hard-wrapped lines
+2533f228d3219340,full,clean,,,,
+fd16036899796ca4,full,clean,,,,
+aa45b78eb4b1b5ad,full,clean,,,,
+ad9d7510b2343977,full,fix,C1,"1 thought on ""Nightlife in rural areas""; so I joined in straight away:",,travel blog with one reader comment; comment header
+3a8b5ee847c1afbc,full,drop,C1;C2;C3;C4;C5,An analysis of thinking and acting in hamlet by william shakespeare; thalamencephalic and underemployed rod spins; продолжительность: 8:25; enterprises of.,,essay-mill SEO page; injected nonsense and essay titles; Russian YouTube UI text
+cf2892092e61e1aa,full,fix,B4;C3,salty foods1; hyponatremic3What; Energy Drinks. energy drinks having fewer sweeteners.,,nutrition article; footnote numbers glued to words; energy-drink explanation lost
+3e3e462610631365,full,fix,C2,WATCH | Boogát - Tanto Tattoo ft. Niña Dioz,,music blog post; title repeated; embedded video removed
+ecabcaa88c9c89f5,full,clean,,,,
+96b00cc286431230,full,drop,B4;C3;D4,Is there any need to written documents; [[i]]; important things to be uninformed for all; in social relations published,,essay with heavy machine-translation errors (likely from Persian); footnote markers
+962bc6e4f3744dd1,full,drop,C3;C4;C5,Learning About Shopping; has greatly expanded today.……; pros and cons are of the gold standard:,,"category page with two unrelated post teasers, both cut off"
+f47414ceb26aab38,full,fix,C1,Comments 52,,ukulele blog post + reader comments; links removed; NEW: missing space
+980120a621536d71,full,clean,,,,
+5912a78c259ccd3f,full,fix,C1;C4,External links; Plot: An actor and poet falls in love,,ORF file-format article; stray wiki heading at start; unrelated film synopsis appended
+d5ef4cbd3802de43,full,fix,C1,Time to Read; Share; find inspiration by clicking the links below:,,Bristol toddler guide; reading-time/share widgets at top; CTA with missing links at end
+3da0a9bbeeac1a6a,full,drop,D1;D3;D4,Agravan Región; The solución has the problematic of the room; suf ficient inseguridad alimentaria; cambios su su sistema,,half-translated Spanish to English machine output; text mixed word by word; unreadable
+061da75fcc6644d8,full,clean,,,,
+a3f7a6aac0ffe16f,full,drop,A3;C4,OvidAEs Phaethon Narrative; HomerAEs Achilles heel; Ironically enough; The Ars Amatoria was composed,U+0041 U+0045,four unrelated snippets about Ovid's Ars amatoria; apostrophe U+2019 turned into AE (mojibake)
+aea7d6f1fcf581a4,full,clean,,,,
+a467c67189516901,full,drop,C2,Describes the most important things to do when someone is hurt,,catalogue blurb repeated twice; no content
+ae8a5a4fdf8d3351,full,drop,B4;C1;C2;C3;C4;C5,How do guysfeelaboutdatingVirgins?; 3 коментариев; [email protected]; How do you feelabout guy.,,dating SEO spam; glued snippets; keyword variants with spaces removed; Russian comment widget
+21d9a00d1cabe255,full,fix,C1,Your Social Media Manager is Wes Vital,,site author widget at start; short car note
+6abe69ac7f218889,full,clean,,,,
+1c6092da9a709c2e,full,drop,C2;C3,A public service announcement: I'm calling out; cook your hotdogs or steak. You,,joke forum post; first line repeated and cut off
+bd708a0acc1ee841,full,drop,C3;C5;D4,Research Old fashioned paper; PhD Amount Cases; modify the newspaper; so the remaining item,,spun essay-service ad (synonym-swapped words); cut off
+07ab89a32b8c6960,full,drop,C2;C3;C4;C5,The understanding of the concept of a black hole; a hypothetical concept called a.; insufferable flying robots; event horizonsas the study,,essay-mill SEO snippet page
+d5a1f09be9ba4450,full,fix,C1,"D.A. Henderson, chief of WHO's smallpox eradication unit; Joel AchenbachJoel Achenbach; Content from Allstate",,"WaPo news article; photo caption at start; author bios, comments label and sponsored ad at end"
+61252972a837d608,full,drop,C2;C3;C4;C5,The several types of contrast in william shakespeares tragedy othello; we use cookies on our website; after which.,,essay-mill SEO snippet page
+8f9a2abd4df5ce33,full,drop,,,,no proper content
+37a68ee0535aea68,full,drop,C1;C3;D3,...maderesented brands; se connecter pour voir l'URL]; Phone Number (Get,,freelance job-post fragment; cut both ends; French login-to-see-URL placeholders
+cc62eae76a8a4428,full,fix,C3,according to each of the four schools of thought;,,course page; topic list cut off (ends with semicolon)
+2a36b6c39911155a,full,clean,,,,
+eb8eab5f88e01414,full,drop,C1;C3;C4;C5,Category: Business English Class; brings … More No Lesson Plan is the Best Lesson Plan; you need … More Four Steps,,blog category page; 8 post teasers each cut at '… More' and glued to next title
+ec3efd57b0ba517d,full,clean,,,,
+78c31f7fbd38c949,full,clean,,,,health reference page; empty 'Interactions?' section heading
+572275c9c2abe68e,full,fix,B2;B5;C3,<math>; sum of all the pairwise potential energies:; The Hamiltonian for this system is; in a given state is,,Wikipedia phonon article; equations removed or left as broken <math> LaTeX; '1023' should be 10^23 (superscript lost); NEW: missing spaces; cut off at end
+c5131c4f60f9ecc3,full,fix,C1;C3;C4,"Posted by Brigham and Women's Hospital October 2, 2013; Hydrocephalus is characterized by walking difficulty; She had not.",,hospital blog page; two posts joined (Parkinson's teaser + patient story); story cut off
+15679c7e52150394,full,drop,C2;C3;C4;C5,"An analysis of martin luther juniors a letter from a birmingham jail; From jail martin a by the of jr law birmingham; 1984, p4.",,essay-mill SEO snippet page; scrambled word salad
+9abfa40620941401,full,fix,C1;C3;C4,B-Line to Space: The Scientific Ballooning Story.; website at:; between NASA and the Louisiana,,NASA article; video caption and removed URL; 4 related-article teasers cut off at end; 'l'll' with lowercase L
+2c2327bac4e467d9,full,fix,B4;C1;C3;C4,"Cs184 1x Homework 13; When studying the genetic code, the first question; genetic code3; software located at:; Kamei M, Webb GC",,edX course page + unrelated genetics article joined; footnote numbers glued; URLs and list items missing; ends with one stray reference
+c04a79e384a80cbf,full,drop,C1;C2;C5,How To Write Birthday Card with 16 Picture Gallery; Welcome to the Abccambodia.com; Elegant Brother Card Brother Birthday Card Funny Card,,image-gallery SEO spam; keyword phrase repeated in every sentence; no content
+73a72cdf38011c79,full,drop,C2;C3;C4;C5,thesis antibacterial middle school english essays property; Compare and Contrast Transition Words; IELTS Essay - Comparing Contrasting - Transition Words Loading…,,essay-mill keyword spam; random keyword headings; one phrase repeated dozens of times
+
