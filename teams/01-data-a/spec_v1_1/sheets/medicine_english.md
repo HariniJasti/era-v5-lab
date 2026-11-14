@@ -11,7 +11,7 @@ Reasons and choices are in `decisions_english.md`.
 - **Packs.** en-nemotroncc-synth has 326 gold docs and en-nemotroncc 129 (Data A gold). The limit is `max(1, floor(1% of gold))`: 3 docs on en-nemotroncc-synth and 1 on en-nemotroncc.
 - **Rule form.** As the v1 rules: `doc = {doc_id, text, url, lang_label, pack_id}`, and `medicine(doc)` returns `(action, text)`. Each rule checks `pack_id` against its `ORIGIN`, the pack where its disease was found. A doc with no `pack_id` passes unchanged.
 - **Codes and IDs.** They come from `NEW_DISEASES.md`. Every code here is a proposed new code.
-- **Run order.** These rules run after the English family's v1 rules, because the readers found the diseases in v1-cleaned text. Within this sheet they run in section order: stage 10 (characters), then stage 30 (source).
+- **Run order.** These rules run after the English family's v1 rules, because the readers found the diseases in v1-cleaned text. Within this sheet they run in section order: stage 10 (characters), then stage 30 (source). Section 3 is a stage 10 rule added after section 2, so it runs last; it does not touch text the other two act on.
 - **Two documents joined (C4).** kunal found it in 4 docs, but it is in `DISEASES.md`, so it isn't new and has no section here. Spec v1 has no English C4 rule.
 
 The last column counts the reading docs with the rule's code that it changes or drops, on the cleaned sample the readers read (`scripts/reading_recall.py`).
@@ -20,7 +20,8 @@ The last column counts the reading docs with the rule's code that it changes or 
 |---|---|---|---|---|---|---|---|
 | 1 | `DA-A8-003` | A8 words run together: no space after a full stop (NEW-missing-spaces) | fix | 10 | off | 0.78% (1/129) PASS | 1 / 2 |
 | 2 | `DA-D7-001` | D7 facts the rewrite got wrong (NEW-factual-error, and 2 wrong answers from NEW-appended-qa) | drop | 30 | 0.00% (0/326) PASS | off | 4 / 4, and the 2 wrong answers |
-| | all in order | sections 1–2 | | | **0.00% (0/326) PASS** | **0.78% (1/129) PASS** | |
+| 3 | `DA-A8-004` | A8 words run together: no full stop, a lowercase word glued to a capitalised one (NEW-missing-spaces) | fix | 10 | off | 0.78% (1/129) PASS | 26 of 500 diagnosis docs, see the card |
+| | all in order | sections 1–3 | | | **0.00% (0/326) PASS** | **1.55% (2/129) FAIL**, see the card | |
 
 en-dclm (62 gold docs) and en-fineweb-edu (158) were run too: both rules are off there, so 0 gold docs are touched (PASS).
 
@@ -144,3 +145,70 @@ def medicine(doc):
    - Every other doc with a wrong fact is missed; the rule finds only what a reader confirmed.
    - The rest of each of the 6 docs, which may be fine, is dropped with them.
 6. **Spec v1.1:** status CANDIDATE, reviewer pending. Source: kunal's en-nemotroncc-synth reading, mittalutkarsh/era-v5-lab#8.
+
+## 3. `DA-A8-004` · A8 words run together: no full stop · fix · stage 10
+
+1. **Disease:** NEW-missing-spaces where there is no full stop between the two words, so `DA-A8-003` can't see it. Found by HariniJasti in the Week 1 en-nemotroncc diagnosis (500 docs, PR #79) and raised on #435. Examples:
+   - `43c65ec608a359bf`: `import your fileEdit with ease`
+   - `6555a5194920ffbb`: `your first adjustmentHere are`
+   - `cecff9e9578553e4`: `relativelyThree teenage girls`
+   - `3605b6a14d0ee8d8`: `the topographyZoom into`
+   - `566402921614f959`: `Admission is freeJohn McCrae`
+   - `fd16036899796ca4`: `saidSanaz Fereshteh` (a gold doc, see the harm test)
+2. **Medicine:** put a space between a lowercase word of 3 or more letters and a capitalised word glued to it: `fileEdit` becomes `file Edit`. The glued token must stand alone: a space, the start of the line or an opening quote or bracket before it, and a space, punctuation or the end of the line after it. It leaves these alone:
+   - **code and markup:** lines with `{ } ; < > = $`, `()`, `::`, `->`, `//`, `def`, `function` or `return`, and lines inside code fences, so `validateString();`, `<responseType>` and `$this->assertTrue` stay;
+   - **camelCase with more humps:** `getMockBuilder` stays, because the token must end after the second word;
+   - **one- and two-letter prefixes:** `iPhone`, `eBay`, `macOS` and `jQuery` stay;
+   - **product names on a short list** (`A8F_KEEP`): `pdfFiller`, `webAssembly`, `appStore` stay.
+
+   Lowercase words glued to lowercase words (`creamthe`, `Whilewe`) are not caught: they need a word list.
+
+```python
+RULE_ID = "DA-A8-004"
+CODE = "A8"  # proposed new code: words run together (NEW_DISEASES.md)
+ACTION = "fix"
+STAGE = "10"
+STATUS = "CANDIDATE"
+ORIGIN = "en-nemotroncc"  # packs it runs on
+PACKS = set(ORIGIN.split(", "))
+SOURCE = "en-nemotroncc"  # pack whose reading found it (HariniJasti, Week 1 diagnosis, PR #79)
+AUTHOR = "HariniJasti"
+import re
+
+A8F_GLUED = re.compile(r"(?:(?<=^)|(?<=[\s\"“(]))([a-z]{3,})([A-Z][a-z]{1,})(?=[\s,;:!?\"”]|\.(?:\s|$)|$)", re.M)
+A8F_CODE = re.compile(r"[{};<>=$]|==|=>|->|::|//|\bdef |\bfunction\b|\breturn\b|\(\)")
+A8F_KEEP = frozenset({"pdf", "mac", "web", "net", "dot", "you", "air", "app", "sub", "pre", "non"})
+
+
+def medicine_a8f(text):
+    out, fence = [], False
+    for line in text.split("\n"):
+        if line.lstrip().startswith("```"):
+            fence = not fence
+            out.append(line)
+            continue
+        if fence or A8F_CODE.search(line):
+            out.append(line)
+            continue
+        out.append(A8F_GLUED.sub(
+            lambda m: m.group(0) if m.group(1) in A8F_KEEP else m.group(1) + " " + m.group(2), line))
+    return "\n".join(out)
+
+
+def medicine(doc):
+    if doc.get("pack_id") not in PACKS:
+        return ("keep", doc["text"])
+    new = medicine_a8f(doc["text"])
+    return ("fix" if new != doc["text"] else "keep", new)
+```
+
+3. **Action:** fix. **Runs on:** en-nemotroncc.
+   - **Diagnosis docs it treats:** 26 of the 500 Week 1 diagnosis docs, 47 glued pairs. Each pair was read: all 47 are words run together, none is a name or code. 25 of the 26 docs are labelled fix or drop in HariniJasti's `labels.csv`; 6 of them are fix docs that this rule repairs (`3cbfa469fc1b0bfe`, `566402921614f959`, `43c65ec608a359bf`, `cecff9e9578553e4`, `6555a5194920ffbb`, `3605b6a14d0ee8d8`).
+   - **Reading docs it treats:** not measured; the cleaned reading sample of en-nemotroncc was not rerun.
+4. **Harm test:** en-nemotroncc 0.78% (1/129) PASS on its own. The gold doc it changes, `fd16036899796ca4`, has the disease itself (`saidSanaz Fereshteh`, a quote glued to the speaker's name), so it is a gold contradiction, as `056cc9bc44c927e2` is for `DA-A8-003`.
+   - **All in order:** 2/129 with `DA-A8-003`, over the limit of 1. Both changed gold docs hold the disease. Whether two gold contradictions on one pack are accepted, or the two docs are re-read, is for the team to rule.
+5. **Side effects:**
+   - A brand written with a lowercase prefix of 3+ letters that is not on `A8F_KEEP` gets a space (`fooBar` style names in prose).
+   - A German compound glued to a capitalised noun would be split; none was seen in this pack.
+   - Lowercase-to-lowercase glues are missed (see above).
+6. **Spec v1.1:** status CANDIDATE, reviewer pending. Source: HariniJasti's en-nemotroncc diagnosis, theschoolofai/era-v5-lab#79, raised on #435.
